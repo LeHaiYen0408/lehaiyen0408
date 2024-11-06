@@ -1,0 +1,197 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #093749;
+}
+
+.twinkling {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.twinkling::before, .twinkling::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+    animation: twinkling 100s linear infinite;
+}
+
+.twinkling::after {
+    background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+    animation: twinkling 100s linear infinite;
+    opacity: 0.5;
+}
+
+@keyframes twinkling {
+    0% { transform: translate(-50%, -50%); }
+    50% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+}
+
+.fish-tank {
+    width: 60%;
+    height: 60%;
+    background-color: #8cc5ff;
+    border: 5px solid #ffffff;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.seaweed {
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    height: 150px;
+    background-size: contain;
+    animation: sway 5s infinite ease-in-out;
+}
+
+.seaweed-left {
+    left: 2%;
+    background-image: url('tảo.png');
+    top: 75% ;
+}
+
+.seaweed-right {
+    right: 2%;
+    background-image: url('tảo.png');
+    top: 75% ;
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+.fish {
+    position: absolute;
+    width: 100px;
+    height: auto;
+}
+
+.fish img {
+    width: 100%;
+    height: auto;
+}
+
+.fish1 {
+    animation: swim1 13s linear infinite;
+    top: 10%;
+}
+
+.fish2 {
+    animation: swim2 12s linear infinite;
+    top: 10%;
+}
+
+.fish3 {
+    animation: swim3 34s linear infinite;
+    top: 50%;
+}
+
+.fish4 {
+    animation: swim4 16s linear infinite;
+    top: 80%;
+}
+.bubbles {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.bubbles span {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: bubbleUp 5s infinite;
+}
+
+.bubbles span:nth-child(2) {
+    width: 8px;
+    height: 8px;
+    animation-delay: 1s;
+}
+
+.bubbles span:nth-child(3) {
+    width: 6px;
+    height: 6px;
+    animation-delay: 2s;
+}
+
+.bubbles span:nth-child(4) {
+    width: 4px;
+    height: 4px;
+    animation-delay: 3s;
+}
+
+@keyframes bubbleUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+@keyframes swim1 {
+    0% { left: -10%; transform: scaleX(1); }
+    50% { left: 110%; transform: scaleX(1); }
+    51% { left: 110%; transform: scaleX(-1); }
+    100% { left: -10%; transform: scaleX(-1); }
+}
+
+@keyframes swim2 {
+    0% {
+        transform: translate(0%, 0%);
+    }
+    100% {
+        transform: translate(100vw, 100vh);
+    }
+}
+
+@keyframes swim3 {
+    0% {
+        transform: translate(100vw, 50%) scaleX(-1);
+    }
+    50% {
+        transform: translate(-10%, 50%) scaleX(-1);
+    }
+    51% {
+        transform: translate(-10%, 50%) scaleX(1); 
+    }
+    100% {
+        transform: translate(100vw, 50%) scaleX(1);
+    }
+}
+
+@keyframes swim4 {
+    0% { left: -10%; top: 110%; transform: translateY(0) scale(1); }
+    100% { left: 110%; top: -10%; transform: translateY(-100%) scale(1); }
+}
